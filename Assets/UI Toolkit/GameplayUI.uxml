@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/UI%20Toolkit/GameplayUI.uss?fileID=7433441132597879392&amp;guid=7a7ce267bddebe44983567defd5eecf7&amp;type=3#GameplayUI" />
     <ui:VisualElement name="Background" enabled="true" style="flex-grow: 1; align-items: auto; align-self: auto; align-content: auto; width: auto; height: auto;">
         <ui:Label text="Time Left: 3:45" name="Timer" style="-unity-text-align: middle-center; height: 5%; width: 50%; position: relative; top: 0; left: 0%; right: 0; bottom: 0; align-self: auto; align-items: auto; justify-content: flex-start; font-size: 40px;" />
-        <ui:ProgressBar value="22" title="Weekly budget" name="BudgetBar" style="height: 5%; width: 50%; flex-wrap: nowrap; position: absolute; top: 10%; left: 25%; align-items: stretch; font-size: 40px; -unity-text-align: middle-center; justify-content: center;" />
+        <ui:ProgressBar value="90" title="Weekly budget: 1050/1200" name="BudgetBar" style="height: 5%; width: 50%; flex-wrap: nowrap; position: absolute; top: 10%; left: 25%; align-items: stretch; font-size: 30px; -unity-text-align: middle-left; justify-content: center; align-content: flex-start; flex-grow: 1;" />
         <ui:Label text="Week 3 of 10" name="Level-progress" style="top: 0; left: 0; height: 5%; width: 50%; transform-origin: center; translate: 0 0; align-items: auto; position: absolute; -unity-text-align: middle-center; font-size: 40px;" />
     </ui:VisualElement>
 </ui:UXML>
