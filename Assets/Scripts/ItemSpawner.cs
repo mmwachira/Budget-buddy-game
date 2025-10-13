@@ -4,8 +4,8 @@ public class ItemSpawner : MonoBehaviour
 {
     public GameObject itemPrefab;
     public float spawnInterval = 1f;
-    public float xMin = -8f;
-    public float xMax = 8f;            
+    public float xMin = -7f;
+    public float xMax = 7f;
     public float spawnHeight = 6f;
     void Start()
     {
