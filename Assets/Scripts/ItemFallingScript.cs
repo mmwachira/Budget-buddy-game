@@ -10,7 +10,7 @@ public class ItemFallingScript : MonoBehaviour
     void Update()
     {
         // Move item down
-        // transform.position += Vector3.down * fallSpeed * Time.deltaTime;
+        transform.position += Vector3.down * fallSpeed * Time.deltaTime;
 
         // // Destroy if offscreen
         // if (transform.position.y < destroyY)
