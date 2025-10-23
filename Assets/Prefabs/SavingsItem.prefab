@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6109082757197491783}
   - component: {fileID: 815641196858400243}
   - component: {fileID: 5149492139111518140}
+  - component: {fileID: 4580198892434139846}
+  - component: {fileID: 5866952107715852284}
   m_Layer: 0
   m_Name: SavingsItem
   m_TagString: Untagged
@@ -151,7 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c697c9dd6fef274aa8f1d177afd7359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemFallingScript
-  fallSpeed: 1
+  downwardForce: 2
+  destroyY: -6
 --- !u!114 &5149492139111518140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,3 +168,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemType
   itemCategory: 2
+--- !u!114 &4580198892434139846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5476356830418141721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86edc1446451800478b4c44f2d99fe05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Swipe
+  swipeForce: 100
+--- !u!50 &5866952107715852284
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5476356830418141721}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.5
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
