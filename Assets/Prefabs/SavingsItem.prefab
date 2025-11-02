@@ -180,7 +180,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86edc1446451800478b4c44f2d99fe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Swipe
-  swipeForce: 100
+  swipeForceMagnitude: 50
+  swipePixelToForceScale: 50
+  minClampedForce: 1
+  maxClampedForce: 15
 --- !u!50 &5866952107715852284
 Rigidbody2D:
   serializedVersion: 5
@@ -196,7 +199,7 @@ Rigidbody2D:
   m_Mass: 0.5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 0.1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

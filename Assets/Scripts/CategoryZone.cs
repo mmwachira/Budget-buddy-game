@@ -21,7 +21,7 @@ public class CategoryZone : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the object that entered the trigger is an item
         ItemType item = other.GetComponent<ItemType>();
