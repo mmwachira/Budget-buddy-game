@@ -29,12 +29,12 @@ public class CategoryZone : MonoBehaviour
         if (item != null)
         {
             Debug.Log($"Item of category {item.itemCategory} entered {zoneCategory} zone.");
-            // // Check if the item's category matches the zone's category
-            // if (item.itemCategory == zoneCategory)
-            // {
-            //     // Successful Match: Add points
-            //     scoreManager.AddPoints(matchScore);
-            //     Debug.Log($"SUCCESS: {item.itemCategory} sorted into {zoneCategory} zone. Score: {scoreManager.CurrentScore}");
+            // Check if the item's category matches the zone's category
+            if (item.itemCategory == zoneCategory)
+                // {
+                // Successful Match: Add points
+                scoreManager.AddPoints(matchScore);
+            Debug.Log($"SUCCESS: {item.itemCategory} sorted into {zoneCategory} zone. Score: {scoreManager.CurrentScore}");
             // }
             // else
             // {

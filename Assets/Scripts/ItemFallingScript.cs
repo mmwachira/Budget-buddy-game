@@ -21,14 +21,14 @@ public class ItemFallingScript : MonoBehaviour
         // rb.gravityScale = 1.0f; 
     }
 
-    void FixedUpdate()
-    {
-        // FixedUpdate is the best place to apply physics updates
+    // void FixedUpdate()
+    // {
+    //     // FixedUpdate is the best place to apply physics updates
 
-        // Apply a constant downward force to control the fall speed.
-        // This is often better than trying to set velocity directly, as it combines with gravity.
-        rb.AddForce(Vector2.down * downwardForce);
-    }
+    //     // Apply a constant downward force to control the fall speed.
+    //     // This is often better than trying to set velocity directly, as it combines with gravity.
+    //     rb.AddForce(Vector2.down * downwardForce);
+    // }
 
     void Update()
     {
