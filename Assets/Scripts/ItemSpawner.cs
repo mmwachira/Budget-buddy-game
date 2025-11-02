@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    public GameObject itemPrefab;
+    public GameObject[] itemPrefabs;
     public float spawnInterval = 1f;
 
     private float xMin;
@@ -17,6 +17,13 @@ public class ItemSpawner : MonoBehaviour
 
     void Start()
     {
+        // Check if the array is populated
+        if (itemPrefabs.Length == 0)
+        {
+            Debug.LogError("Item Prefabs array is empty! Please assign prefabs in the Inspector.");
+            return;
+        }
+
         // Calculate the visible world bounds based on the camera
         CalculateScreenBounds();
 
@@ -46,6 +53,10 @@ public class ItemSpawner : MonoBehaviour
     // Update is called once per frame
     void SpawnItem()
     {
+        // Randomly select a prefab from the array
+        int randomIndex = Random.Range(0, itemPrefabs.Length);
+        GameObject itemToSpawn = itemPrefabs[randomIndex];
+
         // Random horizontal position within the calculated screen bounds
         float xPos = Random.Range(xMin, xMax);
 
@@ -53,6 +64,6 @@ public class ItemSpawner : MonoBehaviour
         Vector3 spawnPos = new Vector3(xPos, spawnHeight, 0f);
 
         // Instantiate the item
-        Instantiate(itemPrefab, spawnPos, Quaternion.identity);
+        Instantiate(itemToSpawn, spawnPos, Quaternion.identity);
     }
 }
