@@ -289,6 +289,9 @@ MonoBehaviour:
   - {fileID: 5476356830418141721, guid: 6f734f048d5442e428ec0b9de3d0fcf6, type: 3}
   - {fileID: 5476356830418141721, guid: 8ad7d5f6f21d58a4d9add4e8fa2615e4, type: 3}
   - {fileID: 5476356830418141721, guid: c87679685bc776e4ebdbecf8350255cc, type: 3}
+  - {fileID: 1775964171480397739, guid: 6e6e17e9c380b3e478a3e2a2fa67c9b7, type: 3}
+  - {fileID: 8298819761174908726, guid: 5ff140bf7b7934c4483da49d40436740, type: 3}
+  - {fileID: 7234929474675841325, guid: 7f744b421b5443d45973c2982003d097, type: 3}
   spawnInterval: 1
   spawnHeight: 6
   padding: 0.5
@@ -392,7 +395,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.02, y: 0.1, z: 10}
-  m_LocalScale: {x: 0.56, y: 0.56, z: 1}
+  m_LocalScale: {x: 0.18, y: 0.56, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
