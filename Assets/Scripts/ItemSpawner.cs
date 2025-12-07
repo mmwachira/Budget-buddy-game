@@ -34,19 +34,21 @@ public class ItemSpawner : MonoBehaviour
     // Function to calculate and update the world boundaries
     void CalculateScreenBounds()
     {
-        // Get the bottom-left corner of the screen in World Space (where x=0, y=0 on screen)
-        Vector3 screenBottomLeft = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
+        // Z-Position is crucial. Set it to the Z-plane of your falling items (usually 0).
+        float zDepth = 0f;
 
-        // Get the top-right corner of the screen in World Space (where x=Screen.width, y=Screen.height on screen)
-        Vector3 screenTopRight = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
+        // Get the bottom-left corner of the camera's view (Viewport X=0, Y=0)
+        Vector3 screenBottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, zDepth));
 
-        // Use the calculated world X boundaries and apply padding
-        // Note: For a falling game, spawnHeight might be better defined based on screenTopRight.y
+        // Get the top-right corner of the camera's view (Viewport X=1, Y=1)
+        Vector3 screenTopRight = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, zDepth));
+
+        // Calculate the horizontal bounds, applying padding
         xMin = screenBottomLeft.x + padding;
         xMax = screenTopRight.x - padding;
 
-        // If you want the spawn height to also be dynamic:
-        // spawnHeight = screenTopRight.y + 1f; // Spawn slightly above the top edge
+        // Set spawn height slightly above the top edge of the camera's view
+        spawnHeight = screenTopRight.y + 0.5f; // Spawns 0.5 units above the top edge
     }
 
 
