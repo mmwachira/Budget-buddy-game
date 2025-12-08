@@ -31,7 +31,7 @@ public class WeekTimer : MonoBehaviour
             OnWeekEnded?.Invoke(); // notify GameManager
         }
 
-        timerText.text = Mathf.Ceil(timeLeft).ToString();
+        timerText.text = "Time left: " + Mathf.Ceil(timeLeft).ToString();
     }
 
     public void StartNewWeek()

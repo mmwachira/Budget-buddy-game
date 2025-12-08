@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
 
     void UpdateWeekUI()
     {
-        weekText.text = $"Week {currentWeek}";
+        weekText.text = $"Week {currentWeek} of 4";
     }
 
     // Called by "Next Week" button
