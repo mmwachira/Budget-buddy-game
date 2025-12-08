@@ -1,35 +1,46 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BudgetManager : MonoBehaviour
 {
-    public float weeklyBudget = 300f;
+    [Header("Budget Settings")]
+    public float weeklyBudget = 1200f;
     public float currentBudget;
 
+    [Header("UI References")]
     public Slider budgetSlider;
+    public TMP_Text budgetText; // The text inside/near the slider
 
-    public float incorrectPenalty = 1.5f; // 50% extra cost
+    [Header("Gameplay Settings")]
+    public float incorrectPenalty = 1.5f; // 50% extra cost for wrong category
 
     void Start()
     {
-        currentBudget = weeklyBudget;
-        budgetSlider.maxValue = weeklyBudget;
-        budgetSlider.value = currentBudget;
+        ResetForNewWeek();
+        UpdateBudgetUI();
     }
 
+    // Called whenever player sorts an item
     public void ApplySort(float itemCost, bool isCorrect)
     {
-        float cost = itemCost;
+        float finalCost = isCorrect ? itemCost : itemCost * incorrectPenalty;
 
-        if (!isCorrect)
-            cost *= incorrectPenalty;
-
-        currentBudget -= cost;
-
+        currentBudget -= finalCost;
         if (currentBudget < 0)
             currentBudget = 0;
 
+        UpdateBudgetUI();
+    }
+
+    private void UpdateBudgetUI()
+    {
+        // Update slider range
+        budgetSlider.maxValue = weeklyBudget;
         budgetSlider.value = currentBudget;
+
+        // Update text
+        budgetText.text = $"Weekly Budget: {currentBudget:F0} / {weeklyBudget:F0}";
     }
 
     public float GetSavings()
@@ -40,6 +51,10 @@ public class BudgetManager : MonoBehaviour
     public void ResetForNewWeek()
     {
         currentBudget = weeklyBudget;
-        budgetSlider.value = currentBudget;
+
+        if (budgetSlider != null)
+            budgetSlider.value = currentBudget;
+
+        UpdateBudgetUI();
     }
 }
