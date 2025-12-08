@@ -7,16 +7,11 @@ public class CategoryZone : MonoBehaviour
     public int matchScore = 1;
     public int mismatchScore = -1;
 
-    private ScoreManager scoreManager;
     private GameManager gameManager;
 
     void Start()
     {
-        scoreManager = FindFirstObjectByType<ScoreManager>();
         gameManager = FindFirstObjectByType<GameManager>();
-
-        if (scoreManager == null)
-            Debug.LogError("ScoreManager not found in the scene!");
 
         if (gameManager == null)
             Debug.LogError("GameManager not found in the scene!");
@@ -32,17 +27,7 @@ public class CategoryZone : MonoBehaviour
 
             Debug.Log($"Item of category {item.itemCategory} entered {zoneCategory} zone.");
 
-            // --- SCORING ---
-            if (isCorrect)
-            {
-                scoreManager.AddPoints(matchScore);
-                Debug.Log($"SUCCESS: +{matchScore} points! New Score: {scoreManager.CurrentScore}");
-            }
-            else
-            {
-                scoreManager.AddPoints(mismatchScore);
-                Debug.Log($"MISMATCH: {mismatchScore} penalty. New Score: {scoreManager.CurrentScore}");
-            }
+
 
             // --- BUDGET ---
             if (gameManager != null)

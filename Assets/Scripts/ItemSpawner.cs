@@ -9,7 +9,9 @@ public class ItemSpawner : MonoBehaviour
     private float xMax;
 
     public float spawnHeight = 6f;
-    public float padding = 0.5f; // Padding to keep items slightly away from the screen edge
+    public float padding = 0.6f; // Padding to keep items slightly away from the screen edge
+
+    private bool isSpawning = true;
 
     void Start()
     {
@@ -51,6 +53,8 @@ public class ItemSpawner : MonoBehaviour
     // Update is called once per frame
     void SpawnItem()
     {
+        if (!isSpawning) return;
+
         // Randomly select a prefab from the array
         int randomIndex = Random.Range(0, itemPrefabs.Length);
         GameObject itemToSpawn = itemPrefabs[randomIndex];
@@ -63,5 +67,11 @@ public class ItemSpawner : MonoBehaviour
 
         // Instantiate the item
         Instantiate(itemToSpawn, spawnPos, Quaternion.identity);
+    }
+
+    public void StopSpawning()
+    {
+        isSpawning = false;
+        CancelInvoke(nameof(SpawnItem));
     }
 }

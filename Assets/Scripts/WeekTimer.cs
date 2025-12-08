@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class WeekTimer : MonoBehaviour
@@ -9,7 +8,9 @@ public class WeekTimer : MonoBehaviour
 
     public TMP_Text timerText;
 
-    public System.Action OnWeekEnd;
+    public System.Action OnWeekEnded;
+
+    private bool timerRunning = false;
 
     void Start()
     {
@@ -18,12 +19,16 @@ public class WeekTimer : MonoBehaviour
 
     void Update()
     {
+        if (!timerRunning) return;
+
         timeLeft -= Time.deltaTime;
 
-        if (timeLeft < 0)
+        if (timeLeft <= 0f)
         {
-            timeLeft = 0;
-            OnWeekEnd?.Invoke();
+            timeLeft = 0f;
+            timerRunning = false; // stop the timer
+
+            OnWeekEnded?.Invoke(); // notify GameManager
         }
 
         timerText.text = Mathf.Ceil(timeLeft).ToString();
@@ -32,5 +37,11 @@ public class WeekTimer : MonoBehaviour
     public void StartNewWeek()
     {
         timeLeft = weekDuration;
+        timerRunning = true;
+    }
+
+    public void StopTimer()
+    {
+        timerRunning = false;
     }
 }

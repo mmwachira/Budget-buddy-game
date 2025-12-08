@@ -16,19 +16,8 @@ public class ItemFallingScript : MonoBehaviour
         // Get the Rigidbody2D component
         rb = GetComponent<Rigidbody2D>();
 
-        // Ensure gravity is enabled on the Rigidbody to handle basic falling
-        // You can set the scale in the Rigidbody component itself, or here:
-        // rb.gravityScale = 1.0f; 
     }
 
-    // void FixedUpdate()
-    // {
-    //     // FixedUpdate is the best place to apply physics updates
-
-    //     // Apply a constant downward force to control the fall speed.
-    //     // This is often better than trying to set velocity directly, as it combines with gravity.
-    //     rb.AddForce(Vector2.down * downwardForce);
-    // }
 
     void Update()
     {
