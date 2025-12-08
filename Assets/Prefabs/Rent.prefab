@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3898769558499767206}
   - component: {fileID: 7150515567550408015}
   m_Layer: 0
-  m_Name: NeedItem
+  m_Name: Rent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,6 +168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemType
   itemCategory: 0
+  itemCost: 40
+  pointsValue: 1
 --- !u!114 &-3898769558499767206
 MonoBehaviour:
   m_ObjectHideFlags: 0

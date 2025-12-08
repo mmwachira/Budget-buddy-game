@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4580198892434139846}
   - component: {fileID: 5866952107715852284}
   m_Layer: 0
-  m_Name: SavingsItem
+  m_Name: Groceries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,7 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b72d2a2cc49a0f540b6064b03baf77fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemType
-  itemCategory: 2
+  itemCategory: 0
+  itemCost: 20
+  pointsValue: 1
 --- !u!114 &4580198892434139846
 MonoBehaviour:
   m_ObjectHideFlags: 0

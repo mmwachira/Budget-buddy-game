@@ -2,48 +2,55 @@ using UnityEngine;
 
 public class CategoryZone : MonoBehaviour
 {
-    // Set this in the Inspector to tell the script what kind of zone it is
-    public Category zoneCategory;
+    public Category zoneCategory;   // Set this in Inspector (Need, Want, Saving/Miss)
 
-    // Define the score change for a successful match and a mismatch
     public int matchScore = 1;
     public int mismatchScore = -1;
 
-    private ScoreManager scoreManager; // Reference to the scoring system
+    private ScoreManager scoreManager;
+    private GameManager gameManager;
 
     void Start()
     {
-        // Find the ScoreManager in the scene (assuming you put it on a single GameObject)
         scoreManager = FindFirstObjectByType<ScoreManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
+
         if (scoreManager == null)
-        {
-            Debug.LogError("ScoreManager not found in the scene! Cannot track points.");
-        }
+            Debug.LogError("ScoreManager not found in the scene!");
+
+        if (gameManager == null)
+            Debug.LogError("GameManager not found in the scene!");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the object that entered the trigger is an item
         ItemType item = other.GetComponent<ItemType>();
 
         if (item != null)
         {
-            Debug.Log($"Item of category {item.itemCategory} entered {zoneCategory} zone.");
-            // Check if the item's category matches the zone's category
-            if (item.itemCategory == zoneCategory)
-                // {
-                // Successful Match: Add points
-                scoreManager.AddPoints(matchScore);
-            Debug.Log($"SUCCESS: {item.itemCategory} sorted into {zoneCategory} zone. Score: {scoreManager.CurrentScore}");
-            // }
-            // else
-            // {
-            //     // Mismatch: Subtract points
-            //     scoreManager.AddPoints(mismatchScore);
-            //     Debug.Log($"MISMATCH: {item.itemCategory} sorted into {zoneCategory} zone. Score: {scoreManager.CurrentScore}");
-            // }
+            bool isCorrect = (item.itemCategory == zoneCategory);
 
-            // Always destroy the item after it has been registered by a zone
+            Debug.Log($"Item of category {item.itemCategory} entered {zoneCategory} zone.");
+
+            // --- SCORING ---
+            if (isCorrect)
+            {
+                scoreManager.AddPoints(matchScore);
+                Debug.Log($"SUCCESS: +{matchScore} points! New Score: {scoreManager.CurrentScore}");
+            }
+            else
+            {
+                scoreManager.AddPoints(mismatchScore);
+                Debug.Log($"MISMATCH: {mismatchScore} penalty. New Score: {scoreManager.CurrentScore}");
+            }
+
+            // --- BUDGET ---
+            if (gameManager != null)
+            {
+                gameManager.OnItemSorted(item.itemCost, isCorrect);
+            }
+
+            // Destroy the item
             Destroy(other.gameObject);
         }
     }

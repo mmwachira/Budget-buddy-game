@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3789227834221350149}
   - component: {fileID: 4351845244436857630}
   m_Layer: 0
-  m_Name: Want Item
+  m_Name: Karaoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,6 +168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemType
   itemCategory: 1
+  itemCost: 10
+  pointsValue: 1
 --- !u!114 &3789227834221350149
 MonoBehaviour:
   m_ObjectHideFlags: 0
