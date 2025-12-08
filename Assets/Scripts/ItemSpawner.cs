@@ -8,10 +8,6 @@ public class ItemSpawner : MonoBehaviour
     private float xMin;
     private float xMax;
 
-    // We'll calculate these dynamically, but keep them for editor convenience if needed
-    // private float xMinWorld; 
-    // private float xMaxWorld; 
-
     public float spawnHeight = 6f;
     public float padding = 0.5f; // Padding to keep items slightly away from the screen edge
 
