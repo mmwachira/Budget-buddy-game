@@ -28,7 +28,7 @@ public class CategoryZone : MonoBehaviour
 
         if (item != null)
         {
-            bool isCorrect = (item.itemCategory == zoneCategory);
+            bool isCorrect = item.itemCategory == zoneCategory;
 
             Debug.Log($"Item of category {item.itemCategory} entered {zoneCategory} zone.");
 
