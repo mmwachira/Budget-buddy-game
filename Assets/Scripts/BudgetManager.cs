@@ -11,6 +11,9 @@ public class BudgetManager : MonoBehaviour
     [Header("UI References")]
     public Slider budgetSlider;
     public TMP_Text budgetText; // The text inside/near the slider
+    public TMP_Text initialIncome;
+    public TMP_Text IncomeSpent;
+    public TMP_Text finalSavings;
 
     [Header("Gameplay Settings")]
     public float incorrectPenalty = 1.5f; // 50% extra cost for wrong category
@@ -40,12 +43,17 @@ public class BudgetManager : MonoBehaviour
         budgetSlider.value = currentBudget;
 
         // Update text
-        budgetText.text = $"Weekly Budget: {currentBudget:F0} / {weeklyBudget:F0}";
+        budgetText.text = $"Weekly Budget: €{currentBudget:F0} / €{weeklyBudget:F0}";
     }
 
     public float GetSavings()
     {
+        initialIncome.text = $"Initial Income: €{weeklyBudget:F0}";
+        float spent = weeklyBudget - currentBudget;
+        IncomeSpent.text = $"Total Spent: €{spent:F0}";
+        finalSavings.text = $"Total Remaining: €{currentBudget:F0}";
         return currentBudget;
+
     }
 
     public void ResetForNewWeek()
