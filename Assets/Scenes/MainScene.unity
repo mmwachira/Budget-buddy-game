@@ -2603,10 +2603,11 @@ MonoBehaviour:
   winSound: {fileID: 8300000, guid: 9c802c95a4b8b8146ad52e4beeb6fd73, type: 3}
   failSound: {fileID: 8300000, guid: ff536f5634d47cd43ba595f0d7ece6c4, type: 3}
   currentWeek: 1
+  difficultyIncreasePerWeek: 0.1
+  budgetDecreasePercent: 0.1
   weekText: {fileID: 1293544433}
   winbuttonText: {fileID: 1401450020}
   losebuttonText: {fileID: 1452899261}
-  difficultyIncreasePerWeek: 0.1
 --- !u!114 &459079314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3792,7 +3793,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 761273779}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 459079313}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RetryWeek
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &761273779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8104,7 +8117,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1927210697}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 459079313}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: NextWeek
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1927210697
 MonoBehaviour:
   m_ObjectHideFlags: 0

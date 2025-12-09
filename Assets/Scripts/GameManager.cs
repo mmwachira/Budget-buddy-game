@@ -17,12 +17,17 @@ public class GameManager : MonoBehaviour
     public AudioClip winSound;
     public AudioClip failSound;
 
+    [Header("Game Progression")]
     public int currentWeek = 1;
+    public float difficultyIncreasePerWeek = 0.1f;
+    public float budgetDecreasePercent = 0.1f; // 10% decrease per week
+
+    [Header("UI References")]
     public TMP_Text weekText;
     public TMP_Text winbuttonText;
     public TMP_Text losebuttonText;
 
-    public float difficultyIncreasePerWeek = 0.1f;
+
 
     void Start()
     {
@@ -41,23 +46,11 @@ public class GameManager : MonoBehaviour
         {
             ShowWin();
         }
-        else
+        else if (budgetManager.currentBudget <= 0)
         {
             ShowFail();
         }
 
-        // float savings = budgetManager.GetSavings();
-
-        // Debug.Log($"Week {currentWeek} savings: {savings}");
-
-        // currentWeek++;
-
-        // // Optional difficulty ramp — increases drop speed globally
-        // Time.timeScale += difficultyIncreasePerWeek;
-
-        // // Reset systems
-        // budgetManager.ResetForNewWeek();
-        // weekTimer.StartNewWeek();
     }
 
     void ShowWin()
@@ -104,12 +97,25 @@ public class GameManager : MonoBehaviour
     // Called by "Next Week" button
     public void NextWeek()
     {
-        currentWeek += 1;
+        currentWeek++;
 
         winScreen.SetActive(false);
 
-        budgetManager.ResetForNewWeek();
+        itemSpawner.spawnInterval *= 1f - difficultyIncreasePerWeek;
+
+        int newBudget = Mathf.RoundToInt(budgetManager.weeklyBudget * (1f - budgetDecreasePercent));
+        budgetManager.SetNewWeekBudget(newBudget);
+
         weekTimer.StartNewWeek();
+        itemSpawner.StartSpawning();
+
+        if (bgmSource != null)
+            bgmSource.Play();
+
+        UpdateWeekUI();
+
+        // budgetManager.ResetForNewWeek();
+        // weekTimer.StartNewWeek();
     }
 
     // Called by "Retry" button
@@ -119,6 +125,11 @@ public class GameManager : MonoBehaviour
 
         budgetManager.ResetForNewWeek();
         weekTimer.StartNewWeek();
+        itemSpawner.StartSpawning();
+
+        // Resume BGM
+        if (bgmSource != null)
+            bgmSource.Play();
     }
 
     public void DestroyAllItems()
