@@ -42,7 +42,7 @@ public class MainMenuManager : MonoBehaviour
         weekTimer.StartNewWeek();
     }
 
-    void OpenMainMenu()
+    public void OpenMainMenu()
     {
         mainMenuPanel.SetActive(true);
         playPanel.SetActive(false);
