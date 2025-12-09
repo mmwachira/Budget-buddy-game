@@ -81,4 +81,12 @@ public class BudgetManager : MonoBehaviour
 
         UpdateBudgetUI();
     }
+
+    public void SetNewWeekBudget(float amount)
+    {
+        weeklyBudget = amount;
+        currentBudget = amount;
+        UpdateBudgetUI();
+    }
+
 }
