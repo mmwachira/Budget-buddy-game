@@ -11,9 +11,15 @@ public class BudgetManager : MonoBehaviour
     [Header("UI References")]
     public Slider budgetSlider;
     public TMP_Text budgetText; // The text inside/near the slider
+    [Header("Win UI References")]
     public TMP_Text initialIncome;
     public TMP_Text IncomeSpent;
     public TMP_Text finalSavings;
+
+    [Header("Lose UI References")]
+    public TMP_Text initialbudget;
+    public TMP_Text totalSpent;
+    public TMP_Text finalamount;
 
     [Header("Gameplay Settings")]
     public float incorrectPenalty = 1.5f; // 50% extra cost for wrong category
@@ -54,6 +60,16 @@ public class BudgetManager : MonoBehaviour
         finalSavings.text = $"Total Remaining: €{currentBudget:F0}";
         return currentBudget;
 
+    }
+
+    public float GetOverspend()
+    {
+        float spent = weeklyBudget - currentBudget;
+        totalSpent.text = $"You spent: €{spent:F0}";
+        initialbudget.text = $"Total Budget was: €{weeklyBudget:F0}";
+        finalamount.text = $"Amount Owed: €{spent - weeklyBudget:F0}";
+
+        return spent - weeklyBudget;
     }
 
     public void ResetForNewWeek()

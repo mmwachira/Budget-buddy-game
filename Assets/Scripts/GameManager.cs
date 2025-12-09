@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
     {
         itemSpawner.StopSpawning();
         DestroyAllItems();
+        budgetManager.GetOverspend();
 
         // Stop background music
         if (bgmSource != null)
