@@ -15,18 +15,18 @@ public class ItemSpawner : MonoBehaviour
 
     void Start()
     {
-        // Check if the array is populated
-        if (itemPrefabs.Length == 0)
-        {
-            Debug.LogError("Item Prefabs array is empty! Please assign prefabs in the Inspector.");
-            return;
-        }
+        // // Check if the array is populated
+        // if (itemPrefabs.Length == 0)
+        // {
+        //     Debug.LogError("Item Prefabs array is empty! Please assign prefabs in the Inspector.");
+        //     return;
+        // }
 
-        // Calculate the visible world bounds based on the camera
-        CalculateScreenBounds();
+        // // Calculate the visible world bounds based on the camera
+        // CalculateScreenBounds();
 
-        // Start repeatedly spawning items
-        InvokeRepeating("SpawnItem", 0.5f, spawnInterval);
+        // // Start repeatedly spawning items
+        // InvokeRepeating("SpawnItem", 0.5f, spawnInterval);
     }
 
     // Function to calculate and update the world boundaries
@@ -68,6 +68,23 @@ public class ItemSpawner : MonoBehaviour
         // Instantiate the item
         Instantiate(itemToSpawn, spawnPos, Quaternion.identity);
     }
+
+    public void StartSpawning()
+    {
+        // Check if the array is populated
+        if (itemPrefabs.Length == 0)
+        {
+            Debug.LogError("Item Prefabs array is empty! Please assign prefabs in the Inspector.");
+            return;
+        }
+
+        // Calculate the visible world bounds based on the camera
+        CalculateScreenBounds();
+
+        isSpawning = true;
+        InvokeRepeating(nameof(SpawnItem), 0.5f, spawnInterval);
+    }
+
 
     public void StopSpawning()
     {
