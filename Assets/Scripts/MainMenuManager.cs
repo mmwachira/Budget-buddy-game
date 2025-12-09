@@ -12,8 +12,8 @@ public class MainMenuManager : MonoBehaviour
     public GameObject mainMenuPanel;
     public GameObject playPanel;
     public GameObject howToPanel;
-    public GameObject optionsPanel;
-    public GameObject creditsPanel;
+    //public GameObject optionsPanel;
+    //public GameObject creditsPanel;
 
     void Start()
     {
@@ -23,8 +23,8 @@ public class MainMenuManager : MonoBehaviour
         mainMenuPanel.SetActive(true);
         playPanel.SetActive(false);
         howToPanel.SetActive(false);
-        optionsPanel.SetActive(false);
-        creditsPanel.SetActive(false);
+        //optionsPanel.SetActive(false);
+        //creditsPanel.SetActive(false);
 
         // Prevent spawner from running at start
         itemSpawner.StopSpawning();
@@ -47,8 +47,8 @@ public class MainMenuManager : MonoBehaviour
         mainMenuPanel.SetActive(true);
         playPanel.SetActive(false);
         howToPanel.SetActive(false);
-        optionsPanel.SetActive(false);
-        creditsPanel.SetActive(false);
+        //optionsPanel.SetActive(false);
+        //creditsPanel.SetActive(false);
     }
 
     // HOW TO PLAY
@@ -60,13 +60,13 @@ public class MainMenuManager : MonoBehaviour
     // OPTIONS
     public void OpenOptions()
     {
-        optionsPanel.SetActive(true);
+        //optionsPanel.SetActive(true);
     }
 
     // CREDITS
     public void OpenCredits()
     {
-        creditsPanel.SetActive(true);
+        //creditsPanel.SetActive(true);
     }
 
     // CLOSE ANY PANEL

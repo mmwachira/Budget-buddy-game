@@ -1,0 +1,12 @@
+# ninja log v5
+1145	13105	7869892856921963	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	23785cf0e11fc7dd
+13111	17111	7869892884617773	C:/Users/USER/Documents/GitHub/Budget-buddy-game/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6v2fvg6u/obj/arm64-v8a/libswappywrapper.so	1e3e49222b56b71c
+202	22094	7869892946867869	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	e8d5391d3859cbe0
+179	22343	7869892948638070	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	ef4f573aa86f1779
+1074	22454	7869892950068762	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	e58bdf6b57148d85
+5	22792	7869892951032191	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	d798dabc2b8218d1
+129	22850	7869892954853530	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	753ad2657d06bf04
+650	24634	7869892972941372	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	de7bf9c6b79a79c0
+154	24854	7869892975168805	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	40dce79b037a9984
+1123	25172	7869892978313702	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	8ddba0645094e8f3
+25173	25780	7869892984036303	C:/Users/USER/Documents/GitHub/Budget-buddy-game/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6v2fvg6u/obj/arm64-v8a/libgame.so	b94ef00c7833a847
